@@ -2,10 +2,10 @@ package emitter
 
 import (
 	"context"
+	"github.com/calehh/emitter/log"
 	"github.com/ethereum/go-ethereum"
 	ethcommon "github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/ethclient"
-	"github.com/ethereum/go-ethereum/log"
 	"math/big"
 	"time"
 )
