@@ -18,17 +18,17 @@ type EventTracer struct {
 }
 
 type Config struct {
-	checkDuration    time.Duration
-	maxRequestHeight int64
-	waitSyncHeight   int64
+	CheckDuration    time.Duration
+	MaxRequestHeight int64
+	WaitSyncHeight   int64
 }
 
 func InitEventTracer(heightPersist HeightPersist, config Config) (*EventTracer, error) {
 	return &EventTracer{
 		heightPersist:    heightPersist,
-		checkDuration:    config.checkDuration,
-		maxRequestHeight: config.maxRequestHeight,
-		waitSyncHeight:   config.waitSyncHeight,
+		checkDuration:    config.CheckDuration,
+		maxRequestHeight: config.MaxRequestHeight,
+		waitSyncHeight:   config.WaitSyncHeight,
 	}, nil
 }
 
