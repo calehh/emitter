@@ -90,10 +90,17 @@ func getEvents(chainInfo ChainInfo, fromBlock *big.Int, toBlock *big.Int) ([]Eve
 	for _, contractInfo := range chainInfo.FilterContract {
 		contractAddrList = append(contractAddrList, contractInfo.Address)
 	}
+	topicList := make([]ethcommon.Hash, 0)
+	for _, contract := range chainInfo.FilterContract {
+		for _, topic := range contract.TopicList {
+			topicList = append(topicList, topic.GetSignature())
+		}
+	}
 	query := ethereum.FilterQuery{
 		FromBlock: fromBlock,
 		ToBlock:   toBlock,
 		Addresses: contractAddrList,
+		Topics:    [][]ethcommon.Hash{topicList},
 	}
 	client, err := ethclient.Dial(chainInfo.RPC)
 	if err != nil {
