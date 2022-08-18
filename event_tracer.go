@@ -141,6 +141,7 @@ func getEvents(chainInfo ChainInfo, fromBlock *big.Int, toBlock *big.Int) ([]Eve
 					eventList = append(eventList, Event{
 						topic.GetName(),
 						vLog.TxHash.String(),
+						contractInfo.Address,
 						time.Now().Unix(),
 						sender,
 						vLog.BlockNumber,

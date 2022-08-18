@@ -18,6 +18,7 @@ type ContractInfo struct {
 type Event struct {
 	Type        string
 	TxHash      string
+	Contract    ethcommon.Address
 	Timestamps  int64
 	Sender      ethcommon.Address
 	BlockHeight uint64
