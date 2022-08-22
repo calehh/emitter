@@ -123,6 +123,9 @@ func getEvents(chainInfo ChainInfo, fromBlock *big.Int, toBlock *big.Int) ([]Eve
 			if found {
 				break
 			}
+			if contractInfo.Address != vLog.Address {
+				continue
+			}
 			for _, topic := range contractInfo.TopicList {
 				if found {
 					break
